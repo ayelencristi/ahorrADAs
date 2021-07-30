@@ -20,7 +20,7 @@
         <div class="col nav justify-content-end">
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link active estilos" aria-current="page" href="#">
+              <a class="nav-link estilos" aria-current="page" href="#">
                 <i class="fas fa-chart-line"></i> Balance</a>
             </li>
             <li class="nav-item">
@@ -36,65 +36,87 @@
       </nav>
     </header> 
 
+    <div class="container">
+        <div class="row">
+                <aside class="col-4 mt-4">
+                
+                    <div class="row">                
+                            <div class="col-12 box-balance ">
+                                <h2 class="mt-4">Balance</h2>
 
-    <aside class="container mt-4">
-      <div class="col-3">
+                                <div class="row mt-4">
+                                <div class="col-6">Ganancia</div>
+                                <div class="col-6 text-end">+$0</div>
+                                </div>
 
-          <div class="container box-balance ">
-            <h2 class="mt-4">Balance</h2>
+                                <div class="row mt-4">
+                                <div class="col-6">Gastos</div>
+                                <div class="col-6 text-end">-$0</div>
+                                </div>
 
-            <div class="row mt-4">
-              <div class="col-6">Ganancia</div>
-              <div class="col-6 text-end">+$0</div>
-            </div>
+                                <div class="row mt-4 mb-4">
+                                <div class="col-6">Total</div>
+                                <div class="col-6 text-end">$0</div>
+                                </div>
+                            </div>
 
-            <div class="row mt-4">
-              <div class="col-6">Gastos</div>
-              <div class="col-6 text-end">-$0</div>
-            </div>
+                            <div class="box-balance mt-4 ">
+                                <form class="row g-3 needs-validation" novalidate>
+                                <div class="col">
+                                    <h2 class="mt-4">Filtros</h2><p class="text-end">Ocultar filtros</p>
+                                <label for="inputState" class="form-label"><h5>Tipo</h5></label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Todos</option>
+                                    <option >Gasto</option>
+                                    <option >Ganancia</option>
+                                </select>
+                                <label for="inputState" class="form-label mt-4"><h5>Categoría</h5></label>
+                                <select id="inputState" class="form-select">
+                                <option selected>Todas</option>
+                                <option >Comidas</option>
+                                <option >Servicios</option>
+                                <option >Salidas</option>
+                                <option >Educación</option>
+                                <option >Transporte</option>
+                                <option >Trabajo</option>
+                                </select>
 
-            <div class="row mt-4 mb-4">
-              <div class="col-6">Total</div>
-              <div class="col-6 text-end">$0</div>
-            </div>
-          </div>
+                                <div class="mb-3 mt-4">
+                                    <label for="exampleFormControlInput1" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="id-date">
+                                  </div>
 
-          <div class="container box-balance mt-4 ">
-            <form class="row g-3 needs-validation" novalidate>
-              <div class="col">
-                <h2 class="mt-4">Filtros</h2><p class="text-end">Ocultar filtros</p>
-              <label for="inputState" class="form-label"><h5>Tipo</h5></label>
-              <select id="inputState" class="form-select">
-                <option selected>Todos</option>
-                <option >Gasto</option>
-                <option >Ganancia</option>
-              </select>
-            <label for="inputState" class="form-label mt-4"><h5>Categoría</h5></label>
-            <select id="inputState" class="form-select">
-              <option selected>Todas</option>
-              <option >Comidas</option>
-              <option >Servicios</option>
-              <option >Salidas</option>
-              <option >Educación</option>
-              <option >Transporte</option>
-              <option >Trabajo</option>
-            </select>
+                                <label for="inputState" class="form-label mt-4"><h5>Ordenar por</h5></label>
+                                <select id="inputState" class="form-select mb-4">
+                                    <option selected>Más reciente</option>
+                                    <option >Menos reciente</option>
+                                    <option >Mayor monto</option>
+                                    <option >Menor monto</option>
+                                    <option >A/Z</option>
+                                    <option >Z/A</option>
+                                </select>
+                                </form>
+                            </div>
+                </div>
+                </aside>
+                <main class="col-8">
+                    <div class="box-balance mt-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <h4 class="m-4">Operaciones</h4>
+                            </div>
 
-            <!-- Fecha -->
-
-              <label for="inputState" class="form-label mt-4"><h5>Ordenar por</h5></label>
-              <select id="inputState" class="form-select mb-4">
-                <option selected>Más reciente</option>
-                <option >Menos reciente</option>
-                <option >Mayor monto</option>
-                <option >Menor monto</option>
-                <option >A/Z</option>
-                <option >Z/A</option>
-              </select>
-            </form>
-          </div>
-      </div>
-    </aside>
+                            <div class="d-flex justify-content-end col-6">
+                                <button type="button" class="btn btn-primary m-4">Nueva operación</button>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="./assets/images/undraw_wallet_aym5.svg" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </main>
+            </div>    
+    </div>
     <script src="./assets/js/bootstrap.min.js"></script>
     <script src="./assets/js/scripts.js"></script>
   </body>
