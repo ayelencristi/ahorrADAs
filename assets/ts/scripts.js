@@ -8,21 +8,7 @@ var getStorage = function () {
     }
     return locStor;
 };
-var formCategory = document.getElementById('form-category');
-var lstorage = getStorage();
-var createCategory = function (e) {
-    e.preventDefault();
-    var form = e.target;
-    var newCategoryName = form.name.value;
-    var newCategory = {
-        id: 1,
-        name: newCategoryName
-    };
-    lstorage.categories.push(newCategory);
-    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+var init = function () {
+    localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()));
 };
-formCategory.addEventListener('submit', createCategory);
-// const init = () => {
-//     localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()))
-// }
-// init();
+init();

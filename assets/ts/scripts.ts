@@ -29,36 +29,17 @@ const getStorage = (): LocalStorage => {
     return locStor;
 }
 
-const formCategory = document.getElementById('form-category')
 
-let lstorage = getStorage();
 
-const createCategory = (e) => {
-    e.preventDefault();
 
-    const form = e.target;
-    const newCategoryName: string = form.name.value;
 
-    const newCategory: Category = {
-        id: 1,
-        name: newCategoryName,
-    }
 
-    lstorage.categories.push(newCategory);
 
-    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+const init = () => {
+    localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()))
 }
 
-formCategory.addEventListener('submit', createCategory)
-
-
-
-
-// const init = () => {
-//     localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()))
-// }
-
-// init();
+init();
 
 
 
