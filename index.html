@@ -12,6 +12,7 @@
   </head>
   <body>
 
+    <!--NAV-->
     <header>
       <nav class="row container-fluid">
         <div class="col">
@@ -36,6 +37,7 @@
       </nav>
     </header> 
 
+    <!--BALANCE Y FILTROS (ASIDE)-->
     <div class="container">
         <div class="row m-4">
                 <aside class="col-4 mt-4">
@@ -63,15 +65,16 @@
                             <div class="box-balance mt-4 sombra">
                                 <form class="row g-3 needs-validation" novalidate>
                                 <div class="col">
-                                    <h2 class="mt-4">Filtros</h2><p class="text-end">Ocultar filtros</p>
-                                <label for="inputState" class="form-label"><h5>Tipo</h5></label>
-                                <select id="inputState" class="form-select">
-                                    <option selected>Todos</option>
-                                    <option >Gasto</option>
-                                    <option >Ganancia</option>
-                                </select>
-                                <label for="inputState" class="form-label mt-4"><h5>Categoría</h5></label>
-                                <select id="inputState" class="form-select"> 
+                                  <h2 class="mt-4">Filtros</h2>
+                                  <p class="text-end">Ocultar filtros</p>
+                              <label for="inputState" class="form-label"><h5>Tipo</h5></label>
+                              <select id="inputState" class="form-select">
+                                  <option selected>Todos</option>
+                                  <option >Gasto</option>
+                                  <option >Ganancia</option>
+                              </select>
+                              <label for="inputState" class="form-label mt-4"><h5>Categoría</h5></label>
+                              <select id="inputState" class="form-select"> 
                                 <!-- <option selected>Todas</option>
                                 <option >Comidas</option>
                                 <option >Servicios</option>
@@ -79,7 +82,7 @@
                                 <option >Educación</option>
                                 <option >Transporte</option>
                                 <option >Trabajo</option> -->
-                                </select>
+                              </select>
 
                                 <div class="mb-3 mt-4">
                                     <label for="exampleFormControlInput1" class="form-label"><h5>Fecha</h5></label>
@@ -99,44 +102,87 @@
                             </div>
                 </div>
                 </aside>
+                <!---OPERACIONES-->
                 <main class="col-8">
-                    <div class="box-balance mt-4 ms-5 sombra">
-                        <div class="row">
-                            <div class="col-6">
-                                <h4 class="m-4">Operaciones</h4>
-                            </div>
+                  <div class="box-balance mt-4 ms-5 sombra">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="m-4">Operaciones</h4>
+                        </div>
 
-                            <div class="d-flex justify-content-end col-6">
-                                <button type="button" class="btn btn-primary m-4 color"> + Nueva operación</button>
-                            </div>
+                        <div class="d-flex justify-content-end col-6">
+                            <button type="button" class="btn btn-primary m-4 color-btn"> + Nueva operación</button>
                         </div>
-                        <div class="medidas">
-                            <img src="./assets/images/undraw_wallet_aym5.svg" class="img-fluid" alt="">
-                            <h3>Sin resultados</h3>
-                            <p> Cambia los filtros o agrega operaciones</p>
-                        </div>
-                        <!-- <div>
-                          <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col">Descripción</th>
-                                <th scope="col">Categoría</th>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Monto</th>
-                                <th scope="col">Acciones</th>
-                              </tr>
-                            </thead>
-                            
-                            <tbody>
-                              
-                            </tbody>
-                          </table>
-                        </div> -->
                     </div>
+                    <div class="row medidas">
+                        <img src="./assets/images/undraw_wallet_aym5.svg" class="img-fluid" alt="">
+                        <h3>Sin resultados</h3>
+                        <p> Cambia los filtros o agrega operaciones</p>
+                    </div>
+                  </div>
                 </main>
             </div>    
     </div>
+
+    <!--NUEVA OPERACION (OCULTAR)-->
+    <div class="container">
+      <div class="row box-balance mt-4 sombra">
+        <form class="g-3 needs-validation" novalidate>
+          <div>
+            <h2 class="mt-4">Nueva operación</h2>
+
+            <!--Descripción-->
+            <div class="mt-4">
+              <label for="inputState" class="form-label">
+                <h5>Descripción</h5></label>
+              <input type="text" class="form-control" id="">
+            </div>
+            <!--Monto-->
+            <div class="mt-4">
+              <label for="inputState" class="form-label">
+                <h5>Monto</h5></label>
+              <input type="number" class="form-control" id="">
+            </div>
+
+            <!--Tipo-->
+            <div class="mt-4">
+              <label for="inputState" class="form-label">
+                <h5>Tipo</h5></label>
+              <select class="form-select">
+                <option value="1">Gasto</option>
+                <option value="2">Ganancia</option>
+              </select>
+            </div>
+
+            <!--Categorias-->
+            <div class="mt-4">
+              <label for="inputState" class="form-label">
+                <h5>Categoría</h5></label>
+              <select class="form-select">
+                
+              </select>
+            </div>
+
+            <!--Fecha-->
+            <div class="mb-3 mt-4">
+                <label class="form-label">
+                  <h5>Fecha</h5></label>
+                <input type="date" class="form-control" id="">
+            </div>
+        </form>
+
+        <!--Botones Agregar/Cancelar-->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-light me-md-2" type="button">Cancelar</button>
+          <button class="btn btn-primary color-btn" type="button">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------------------------------------->
+
+
     <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- <script src="./assets/js/scripts.js"></script> -->
+    <script src="./assets/js/scripts.js"></script>
   </body>
 </html>

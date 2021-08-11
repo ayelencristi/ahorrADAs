@@ -23,12 +23,12 @@ nav {
 .box-balance {
     border-radius: 5px;
 }
-.color{
+.color-btn{
     background-color: #44F0CD;
     color: #157461;
     border: 1px solid transparent;
 }
-.color:hover{
+.color-btn:hover{
     transition-duration:0.1s;
     background-color: #49d6ba;
     border: #49d6ba;
@@ -52,3 +52,4 @@ background-color: white;
     transition-duration:0.1s;
     border:1px solid #5a837a;
 }
+
