@@ -68,3 +68,6 @@ const createCategory = (e) => {
 }
 
 formCategory.addEventListener('submit', createCategory)
+
+
+
