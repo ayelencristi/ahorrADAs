@@ -42,29 +42,6 @@ const init = () => {
 init();
 
 
-// ------------ BOTON NUEVA OPERACION-----------
-
-const btnNewOperation = document.getElementById('new-operation');
-const divNewOperation = document.getElementById('div-new-operation');
-const btnAddCategory = document.getElementById('btn-add-category');
-const btnCancel = document.getElementById('btn-cancel');
-const divMain = document.getElementById('div-main');
-
-
-
-const tabNewOperation = () => {
-    divMain.classList.add('d-none');
-    divNewOperation.classList.remove('d-none');
-}
-btnNewOperation.addEventListener('click', tabNewOperation);
-
-
-const closeTabNewOperation = () => {
-    divMain.classList.remove('d-none');
-    divNewOperation.classList.add('d-none');
-}
-btnCancel.addEventListener('click', closeTabNewOperation);
-
 
 
 
