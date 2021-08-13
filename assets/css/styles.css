@@ -2,21 +2,54 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color:aliceblue;
 }
-
 header {
-    background-color: RGB(94, 201, 201);
-    color: rgb(56, 56, 143);
+    background-color: #44F0CD;
+    color: #157461;
 }
 nav {
     height: 5rem;
     align-items: center;
 }
 .estilos{
-    color:rgb(56, 56, 143);
-    text-decoration: none;
+    color:#157461;
+}
+.estilos:hover{
+    transition-duration:0.1s;
+    background-color: #49d6ba;
+    color:#157461;
 }
 .box-balance {
-    border: 1px solid gray;
     border-radius: 5px;
 }
+.color-btn{
+    background-color: #44F0CD;
+    color: #157461;
+    border: 1px solid transparent;
+}
+.color-btn:hover{
+    transition-duration:0.1s;
+    background-color: #49d6ba;
+    border: #49d6ba;
+    color:#157461;
+}
+.sombra{
+    box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
+-webkit-box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
+-moz-box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
+background-color: white;
+}
+.medidas{
+    width: 30rem;
+    height: 30rem;
+    text-align: center;
+}
+.bordeColor{
+    border:1px solid #8cbbb1;
+}
+.bordeColor:hover{
+    transition-duration:0.1s;
+    border:1px solid #5a837a;
+}
+
