@@ -12,3 +12,5 @@ var init = function () {
     localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()));
 };
 init();
+
+
