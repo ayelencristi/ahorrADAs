@@ -21,15 +21,15 @@
         <div class="col nav justify-content-end">
           <ul class="nav nav-pills">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
+              <a class="nav-link" aria-current="page" href="./index.html">
                 <i class="fas fa-chart-line"></i> Balance</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="./categories.html">
                 <i class="fas fa-tag"></i> Categorías</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="./report.html">
                 <i class="fas fa-chart-pie"></i> Reportes</a>
             </li>
           </ul>
@@ -107,12 +107,14 @@
                                 <button type="button" class="btn btn-primary m-4 color" id="btn-new-operation"> + Nueva operación</button>
                             </div>
                         </div>
-                        <div class="medidas">
-                            <img src="./assets/images/undraw_wallet_aym5.svg" class="img-fluid" alt="">
-                            <h3>Sin resultados</h3>
-                            <p> Cambia los filtros o agrega operaciones</p>
+                        <div class="d-flex justify-content-center">
+                          <div class="medidas m-4">
+                              <img src="./assets/images/undraw_wallet_aym5.svg" class="img-fluid m-4" width="400px" alt="">
+                              <h3>Sin resultados</h3>
+                              <p> Cambia los filtros o agrega operaciones</p>
+                          </div>
                         </div>
-                        <!-- <div>
+                          <!-- <div>
                           <table class="table">
                             <thead>
                               <tr>
@@ -135,7 +137,7 @@
 
     </div>
     <!--NUEVA OPERACION (OCULTAR)-->
-    <div class="container" id="div-new-operation">
+    <div class="container d-none" id="div-new-operation">
       <div class="row box-balance mt-4 sombra">
         <form class="g-3 needs-validation" novalidate>
           <div>
