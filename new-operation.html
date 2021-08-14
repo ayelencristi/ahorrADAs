@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/430e0fa557.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Nueva Operación</title>
+</head>
+<body>
+    <!--NAV-->
+    <header>
+        <nav class="row container-fluid">
+          <div class="col">
+            <h1> <i class="fas fa-wallet"></i> AhorrADAs </h1>
+          </div>
+          <div class="col nav justify-content-end">
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">
+                  <i class="fas fa-chart-line"></i> Balance</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-tag"></i> Categorías</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fas fa-chart-pie"></i> Reportes</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header> 
+    <!--NUEVA OPERACION-->
+    <div class="container" id="div-new-operation">
+        <div class="row box-balance m-4 sombra">
+          <form class="g-3 needs-validation" novalidate>
+            <div class="m-4">
+              <h2 class="mt-4">Nueva operación</h2>
+  
+              <!--Descripción-->
+              <div class="mt-4">
+                <label for="inputState" class="form-label">
+                  <h5>Descripción</h5></label>
+                <input type="text" class="form-control" id="">
+              </div>
+              <!--Monto-->
+              <div class="mt-4">
+                <label for="inputState" class="form-label">
+                  <h5>Monto</h5></label>
+                <input type="number" class="form-control" id="">
+              </div>
+  
+              <!--Tipo-->
+              <div class="mt-4">
+                <label for="inputState" class="form-label">
+                  <h5>Tipo</h5></label>
+                <select class="form-select">
+                  <option value="1">Gasto</option>
+                  <option value="2">Ganancia</option>
+                </select>
+              </div>
+  
+              <!--Categorias-->
+              <div class="mt-4">
+                <label for="inputState" class="form-label">
+                  <h5>Categoría</h5></label>
+                <select class="form-select">
+  
+                </select>
+              </div>
+  
+              <!--Fecha-->
+              <div class="mb-3 mt-4">
+                  <label class="form-label">
+                    <h5>Fecha</h5></label>
+                  <input type="date" class="form-control" id="">
+              </div>
+          </form>
+  
+          <!--Botones Agregar/Cancelar-->
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-light me-md-2" type="button" id="btn-cancel">Cancelar</button>
+            <button class="btn btn-primary color-btn" type="button" id="btn-add-category">Agregar</button>
+          </div>
+        </div>
+      </div>
+      <script src="./assets/js/bootstrap.min.js"></script>
+      <script src="./assets/js/scripts.js"></script>
+      <script src="./assets/js/new-operation.js"></script>
+
+</body>
+</html>
