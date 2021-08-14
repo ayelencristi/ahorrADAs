@@ -3,7 +3,16 @@ var getStorage = function () {
     if (!locStor) {
         locStor = {
             categories: [],
-            operations: []
+            operations: [
+                {
+                    description: 'Lorem Ipsum',
+                    amount: 123,
+                    date: '10/10/2021',
+                    id: 1,
+                    categories: { id: 3, name: 'Comida' },
+                    type: 'gasto'
+                }
+            ]
         };
     }
     return locStor;
@@ -12,5 +21,3 @@ var init = function () {
     localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()));
 };
 init();
-
-

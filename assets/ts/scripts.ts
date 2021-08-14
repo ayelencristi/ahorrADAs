@@ -4,8 +4,9 @@ type LocalStorage = {
 }
 
 type Operation = {
+    id: number,
     description: string,
-    categories: string,
+    categories: Category,
     date: string,
     amount: number,
     type: "gasto" | "ganancia"
@@ -22,7 +23,17 @@ const getStorage = (): LocalStorage => {
     if(!locStor) {
        locStor = {
           categories: [],
-          operations: [],
+          operations: [
+              {
+                  description: 'Lorem Ipsum',
+                  amount: 123,
+                  date: '10/10/2021',
+                  id: 1,
+                  categories: { id: 3, name: 'Comida' },
+                  type: 'gasto'
+
+              }
+          ],
        } 
     }
  

@@ -11,19 +11,28 @@ var loadForm = function () {
     }
 };
 loadForm();
-// ------------ BOTON NUEVA OPERACION-----------
-var btnNewOperation = document.getElementById('btn-new-operation');
-var divNewOperation = document.getElementById('div-new-operation');
-var btnAddCategory = document.getElementById('btn-add-category');
-var btnCancel = document.getElementById('btn-cancel');
-var divMain = document.getElementById('div-main');
-var tabNewOperation = function () {
-    divMain.classList.add('d-none');
-    divNewOperation.classList.remove('d-none');
+var loadOperationTable = function () {
+    var lstorage = getStorage();
+    var tableOperations = document.getElementById('operations');
+    lstorage.operations.forEach(function (operation) {
+        var tr = document.createElement('tr');
+        var tdDescription = document.createElement('td');
+        var tdCategory = document.createElement('td');
+        var tdDate = document.createElement('td');
+        var tdAmount = document.createElement('td');
+        var tdAction = document.createElement('td');
+        tdDescription.appendChild(document.createTextNode(operation.description));
+        tdCategory.appendChild(document.createTextNode(operation.categories.name));
+        tdDate.appendChild(document.createTextNode(operation.date));
+        tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
+        tdAction.appendChild(document.createTextNode(operation.type));
+        tr.appendChild(tdDescription);
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdDate);
+        tr.appendChild(tdAmount);
+        tr.appendChild(tdAction);
+        var tbody = tableOperations.getElementsByTagName('tbody')[0];
+        tbody.appendChild(tr);
+    });
 };
-btnNewOperation.addEventListener('click', tabNewOperation);
-var closeTabNewOperation = function () {
-    divMain.classList.remove('d-none');
-    divNewOperation.classList.add('d-none');
-};
-btnCancel.addEventListener('click', closeTabNewOperation);
+loadOperationTable();
