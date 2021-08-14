@@ -13,20 +13,37 @@ const loadForm = () => {
 }
 loadForm();
 
+const loadOperationTable = () => {
+    const lstorage: LocalStorage = getStorage();
 
-// ------------ BOTON NUEVA OPERACION-----------
-var btnNewOperation = document.getElementById('btn-new-operation');
-var divNewOperation = document.getElementById('div-new-operation');
-var btnAddCategory = document.getElementById('btn-add-category');
-var btnCancel = document.getElementById('btn-cancel');
-var divMain = document.getElementById('div-main');
-var tabNewOperation = function () {
-    divMain.classList.add('d-none');
-    divNewOperation.classList.remove('d-none');
-};
-btnNewOperation.addEventListener('click', tabNewOperation);
-var closeTabNewOperation = function () {
-    divMain.classList.remove('d-none');
-    divNewOperation.classList.add('d-none');
-};
-btnCancel.addEventListener('click', closeTabNewOperation);
+    const tableOperations = document.getElementById('operations');
+
+    lstorage.operations.forEach((operation) => {
+        const tr = document.createElement('tr');
+        const tdDescription = document.createElement('td');
+        const tdCategory = document.createElement('td');
+        const tdDate = document.createElement('td');
+        const tdAmount = document.createElement('td');
+        const tdAction = document.createElement('td');
+
+        tdDescription.appendChild(document.createTextNode(operation.description));
+        tdCategory.appendChild(document.createTextNode(operation.categories.name));
+        tdDate.appendChild(document.createTextNode(operation.date));
+        tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
+        tdAction.appendChild(document.createTextNode(operation.type));
+
+        tr.appendChild(tdDescription);
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdDate);
+        tr.appendChild(tdAmount);
+        tr.appendChild(tdAction);
+        const tbody = tableOperations.getElementsByTagName('tbody')[0];
+        tbody.appendChild(tr);
+
+    })
+}
+loadOperationTable();
+
+
+
+
