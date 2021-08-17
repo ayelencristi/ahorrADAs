@@ -1,17 +1,22 @@
 // FUNCION CARGAR OPTIONS SELECT CATEGORIES
-const loadForm = () => {
+
+const selectCategories = document.getElementById('select-categories');
+
+const loadForm = (s) => {
     const lstorage: LocalStorage = getStorage();
 
-    const selectCategories = document.getElementById('select-categories');
+    // const selectCategories = document.getElementById('select-categories');
 
     for(const category of lstorage.categories) {
         const elem = document.createElement('option');
         elem.innerText = category.name;
         elem.value = category.id;
-        selectCategories.appendChild(elem);
+        s.appendChild(elem);
     }
 }
-loadForm();
+loadForm(selectCategories);
+
+//FUNCIÓN CARGAR TABLA DE OPERACIONES
 
 const loadOperationTable = () => {
     const lstorage: LocalStorage = getStorage();
