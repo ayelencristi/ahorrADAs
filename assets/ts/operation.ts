@@ -5,7 +5,11 @@ if (params.get('id')) {
 
 }
 
-//FUNCION CARGAR 
+//FUNCION CARGAR SELECT DE CATEGORIES
+
+const selectCatOperations = document.getElementById('select-categories-op');
+
+loadForm(selectCatOperations);
 
 
 
