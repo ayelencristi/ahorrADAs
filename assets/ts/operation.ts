@@ -5,7 +5,7 @@ if (params.get('id')) {
 
 }
 
-
+//FUNCION CARGAR 
 
 
 
