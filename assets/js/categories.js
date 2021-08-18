@@ -1,3 +1,12 @@
+var getID = function () {
+    if (lstorage.categories.length > 0) {
+        var lastItem = lstorage.categories[lstorage.categories.length - 1];
+        return lastItem.id + 1;
+    }
+    else {
+        return 1;
+    }
+};
 var formCategory = document.getElementById('form-category');
 var lstorage = getStorage();
 var createCategory = function (e) {
@@ -5,7 +14,7 @@ var createCategory = function (e) {
     var form = e.target;
     var newCategoryName = form.name.value;
     var newCategory = {
-        id: 1,
+        id: getID(),
         name: newCategoryName
     };
     lstorage.categories.push(newCategory);
