@@ -1,3 +1,13 @@
+let getID = () =>{ 
+    if(lstorage.categories.length > 0){
+        const lastItem = lstorage.categories[lstorage.categories.length -1]
+        return lastItem.id +1;
+    }else{
+        return 1
+    }
+
+}
+
 const formCategory = document.getElementById('form-category')
 
 let lstorage = getStorage();
@@ -9,7 +19,7 @@ const createCategory = (e) => {
     const newCategoryName: string = form.name.value;
 
     const newCategory: Category = {
-        id: 1,
+        id: getID(),
         name: newCategoryName,
     }
 
