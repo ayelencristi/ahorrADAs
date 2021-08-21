@@ -1,20 +1,25 @@
 // FUNCION CARGAR OPTIONS SELECT CATEGORIES
-var loadForm = function () {
+var selectCategories = document.getElementById('select-categories');
+var loadForm = function (s) {
     var lstorage = getStorage();
-    var selectCategories = document.getElementById('select-categories');
+    // const selectCategories = document.getElementById('select-categories');
     for (var _i = 0, _a = lstorage.categories; _i < _a.length; _i++) {
         var category = _a[_i];
         var elem = document.createElement('option');
         elem.innerText = category.name;
         elem.value = category.id;
-        selectCategories.appendChild(elem);
+        s.appendChild(elem);
     }
 };
-loadForm();
+loadForm(selectCategories);
+/////////////////
+// FUNCIÓN CARGAR TABLA DE OPERACIONES
+var tableOperations = document.getElementById('operations');
 var loadOperationTable = function () {
     var lstorage = getStorage();
-    var tableOperations = document.getElementById('operations');
-    lstorage.operations.forEach(function (operation) {
+    // lstorage.operations.forEach((operation) => {
+    for (var _i = 0, _a = lstorage.operations; _i < _a.length; _i++) {
+        var operation = _a[_i];
         var tr = document.createElement('tr');
         var tdDescription = document.createElement('td');
         var tdCategory = document.createElement('td');
@@ -33,6 +38,7 @@ var loadOperationTable = function () {
         tr.appendChild(tdAction);
         var tbody = tableOperations.getElementsByTagName('tbody')[0];
         tbody.appendChild(tr);
-    });
+        // })
+    }
 };
 loadOperationTable();

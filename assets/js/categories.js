@@ -1,46 +1,12 @@
-// const storage = getStorage();
-// const getStorage = (): LocalStorage => {
-//     let locStor: LocalStorage = JSON.parse(localStorage.getItem('ahorradas-data'));
-//     if(!locStor) {
-//         locStor = {
-//             categories: Category = [
-//                 {
-//                     id: 1,
-//                     name: "Comida",
-//                 },
-//                 {
-//                     id: 2,
-//                     name: "Servicios"
-//                 },
-//                 {
-//                     id: 3,
-//                     name: "Salidas"
-//                 },
-//                 {
-//                     id: 4,
-//                     name: "Educación"
-//                 },
-//                 {
-//                     id: 5,
-//                     name: "Transporte"
-//                 },
-//                 {
-//                     id: 4,
-//                     name: "Trabajo"
-//                 },
-//             ],
-//             operations: []
-//         } 
-//     }
-//     return locStor;
-// }
-// formCategory.addEventListener('submit',()=> {
-//     alert("funciona")
-// })
-// const init = () => {
-//     localStorage.setItem('ahorradas-data', JSON.stringify(getStorage()))
-// }
-// init();
+var getID = function () {
+    if (lstorage.categories.length > 0) {
+        var lastItem = lstorage.categories[lstorage.categories.length - 1];
+        return lastItem.id + 1;
+    }
+    else {
+        return 1;
+    }
+};
 var formCategory = document.getElementById('form-category');
 var lstorage = getStorage();
 var createCategory = function (e) {
@@ -48,10 +14,30 @@ var createCategory = function (e) {
     var form = e.target;
     var newCategoryName = form.name.value;
     var newCategory = {
-        id: 1,
+        id: getID(),
         name: newCategoryName
     };
     lstorage.categories.push(newCategory);
     localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
 };
 formCategory.addEventListener('submit', createCategory);
+// CARGAR TABLA CATEGORÍAS
+var loadCategoriesTable = function () {
+    var lstorage = getStorage();
+    var tableCategories = document.getElementById('table-categories');
+    lstorage.categories.forEach(function (category) {
+        var tr = document.createElement('tr');
+        var tdCategory = document.createElement('td');
+        var tdEdit = document.createElement('a');
+        var tdDelete = document.createElement('a');
+        tdCategory.appendChild(document.createTextNode(category.name));
+        tdEdit.appendChild(document.createTextNode('Editar'));
+        tdDelete.appendChild(document.createTextNode('Eliminar'));
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdEdit);
+        tr.appendChild(tdDelete);
+        var tbody = tableCategories.getElementsByTagName('tbody')[0];
+        tbody.appendChild(tr);
+    });
+};
+loadCategoriesTable();

@@ -3,16 +3,7 @@ var getStorage = function () {
     if (!locStor) {
         locStor = {
             categories: [],
-            operations: [
-                {
-                    description: 'Lorem Ipsum',
-                    amount: 123,
-                    date: '10/10/2021',
-                    id: 1,
-                    categories: { id: 3, name: 'Comida' },
-                    type: 'gasto'
-                }
-            ]
+            operations: []
         };
     }
     return locStor;

@@ -2,6 +2,7 @@
 
 const selectCategories = document.getElementById('select-categories');
 
+
 const loadForm = (s) => {
     const lstorage: LocalStorage = getStorage();
 
@@ -16,14 +17,18 @@ const loadForm = (s) => {
 }
 loadForm(selectCategories);
 
-//FUNCIÓN CARGAR TABLA DE OPERACIONES
+/////////////////
+
+
+// FUNCIÓN CARGAR TABLA DE OPERACIONES
+
+const tableOperations = document.getElementById('operations');
 
 const loadOperationTable = () => {
     const lstorage: LocalStorage = getStorage();
 
-    const tableOperations = document.getElementById('operations');
-
-    lstorage.operations.forEach((operation) => {
+    // lstorage.operations.forEach((operation) => {
+        for(const operation of lstorage.operations){
         const tr = document.createElement('tr');
         const tdDescription = document.createElement('td');
         const tdCategory = document.createElement('td');
@@ -44,8 +49,9 @@ const loadOperationTable = () => {
         tr.appendChild(tdAction);
         const tbody = tableOperations.getElementsByTagName('tbody')[0];
         tbody.appendChild(tr);
-
-    })
+        
+        // })
+}
 }
 loadOperationTable();
 

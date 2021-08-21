@@ -1,3 +1,13 @@
+let getID = () =>{ 
+    if(lstorage.categories.length > 0){
+        const lastItem = lstorage.categories[lstorage.categories.length -1]
+        return lastItem.id +1;
+    }else{
+        return 1
+    }
+
+}
+
 const formCategory = document.getElementById('form-category')
 
 let lstorage = getStorage();
@@ -9,7 +19,7 @@ const createCategory = (e) => {
     const newCategoryName: string = form.name.value;
 
     const newCategory: Category = {
-        id: 1,
+        id: getID(),
         name: newCategoryName,
     }
 
@@ -19,6 +29,35 @@ const createCategory = (e) => {
 }
 
 formCategory.addEventListener('submit', createCategory)
+
+// CARGAR TABLA CATEGORÍAS
+
+const loadCategoriesTable = () => {
+    const lstorage: LocalStorage = getStorage();
+
+    const tableCategories = document.getElementById('table-categories');
+
+    lstorage.categories.forEach((category) => {
+        const tr = document.createElement('tr');
+        const tdCategory = document.createElement('td');
+        const tdEdit = document.createElement('a');
+        const tdDelete = document.createElement('a');
+
+        tdCategory.appendChild(document.createTextNode(category.name));
+        tdEdit.appendChild(document.createTextNode('Editar'));        
+        tdDelete.appendChild(document.createTextNode('Eliminar'));
+        
+        
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdEdit);
+        tr.appendChild(tdDelete);
+        const tbody = tableCategories.getElementsByTagName('tbody')[0];
+        tbody.appendChild(tr);
+
+    })
+}
+loadCategoriesTable();
+
 
 
 
