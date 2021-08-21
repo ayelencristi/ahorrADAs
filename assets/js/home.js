@@ -27,7 +27,7 @@ var loadOperationTable = function () {
         var tdAmount = document.createElement('td');
         var tdAction = document.createElement('td');
         tdDescription.appendChild(document.createTextNode(operation.description));
-        tdCategory.appendChild(document.createTextNode(operation.categories.name));
+        tdCategory.appendChild(document.createTextNode(operation.category.name));
         tdDate.appendChild(document.createTextNode(operation.date));
         tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
         tdAction.appendChild(document.createTextNode(operation.type));
