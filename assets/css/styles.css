@@ -8,10 +8,6 @@ header {
     background-color: #44F0CD;
     color: #157461;
 }
-nav {
-    height: 5rem;
-    align-items: center;
-}
 .nav-link{
     color:#157461;
 }
@@ -19,6 +15,9 @@ nav {
     transition-duration:0.1s;
     background-color: #49d6ba;
     color:#157461;
+}
+a{
+    font-size:small;
 }
 .box-balance {
     border-radius: 5px;
@@ -45,6 +44,7 @@ nav {
     background-color: #49d6ba;
     border: #49d6ba;
     color:#157461;
+    
 }
 .shadow{
     box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
