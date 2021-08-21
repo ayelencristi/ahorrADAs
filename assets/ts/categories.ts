@@ -8,27 +8,10 @@ let getID = () =>{
 
 }
 
-const formCategory = document.getElementById('form-category')
-
-let lstorage = getStorage();
-
-const createCategory = (e) => {
-    e.preventDefault();
-
-    const form = e.target;
-    const newCategoryName: string = form.name.value;
-
-    const newCategory: Category = {
-        id: getID(),
-        name: newCategoryName,
-    }
-
-    lstorage.categories.push(newCategory);
-
-    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+const refresh = () =>{
+    document.location.reload(false);
 }
 
-formCategory.addEventListener('submit', createCategory)
 
 // CARGAR TABLA CATEGORÍAS
 
@@ -36,6 +19,7 @@ const loadCategoriesTable = () => {
     const lstorage: LocalStorage = getStorage();
 
     const tableCategories = document.getElementById('table-categories');
+    // tableCategories.innerHTML = "";
 
     lstorage.categories.forEach((category) => {
         const tr = document.createElement('tr');
@@ -57,6 +41,35 @@ const loadCategoriesTable = () => {
     })
 }
 loadCategoriesTable();
+
+
+
+// FUNCION CREAR CATEGORIAS
+
+const formCategory = document.getElementById('form-category')
+
+let lstorage = getStorage();
+
+const createCategory = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const newCategoryName: string = form.name.value;
+
+    const newCategory: Category = {
+        id: getID(),
+        name: newCategoryName,
+    }
+
+    lstorage.categories.push(newCategory);
+
+    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+    loadCategoriesTable();
+    refresh();
+}
+
+formCategory.addEventListener('submit', createCategory)
+
 
 
 

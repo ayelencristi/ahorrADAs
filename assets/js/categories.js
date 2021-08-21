@@ -7,24 +7,14 @@ var getID = function () {
         return 1;
     }
 };
-var formCategory = document.getElementById('form-category');
-var lstorage = getStorage();
-var createCategory = function (e) {
-    e.preventDefault();
-    var form = e.target;
-    var newCategoryName = form.name.value;
-    var newCategory = {
-        id: getID(),
-        name: newCategoryName
-    };
-    lstorage.categories.push(newCategory);
-    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+var refresh = function () {
+    document.location.reload(false);
 };
-formCategory.addEventListener('submit', createCategory);
 // CARGAR TABLA CATEGORÍAS
 var loadCategoriesTable = function () {
     var lstorage = getStorage();
     var tableCategories = document.getElementById('table-categories');
+    // tableCategories.innerHTML = "";
     lstorage.categories.forEach(function (category) {
         var tr = document.createElement('tr');
         var tdCategory = document.createElement('td');
@@ -41,3 +31,20 @@ var loadCategoriesTable = function () {
     });
 };
 loadCategoriesTable();
+// FUNCION CREAR CATEGORIAS
+var formCategory = document.getElementById('form-category');
+var lstorage = getStorage();
+var createCategory = function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var newCategoryName = form.name.value;
+    var newCategory = {
+        id: getID(),
+        name: newCategoryName
+    };
+    lstorage.categories.push(newCategory);
+    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+    loadCategoriesTable();
+    refresh();
+};
+formCategory.addEventListener('submit', createCategory);
