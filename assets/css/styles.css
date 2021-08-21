@@ -16,9 +16,6 @@ header {
     background-color: #49d6ba;
     color:#157461;
 }
-a{
-    font-size:small;
-}
 .box-balance {
     border-radius: 5px;
 }
@@ -51,11 +48,6 @@ a{
 -webkit-box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
 -moz-box-shadow: -16px 13px 24px -9px rgba(150, 149, 149, 0.75);
 background-color: white;
-}
-.size{
-    width: 30rem;
-    height: 30rem;
-    text-align: center;
 }
 .bordeColor{
     border:1px solid #8cbbb1;
