@@ -27,15 +27,23 @@ loadForm(selectCatOperations);
 
 const formOperation = document.getElementById('form-operation');
 
-let lstorage = getStorage();
+let lstorage: LocalStorage = getStorage();
 
 const createOperation = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
+    const getCategory = (selectCat) => {
+        for (const Category of lstorage.categories) {
+            if (parseInt(selectCat) === Category.id) {
+                return Category
+            }
+        } 
+    }
+
     const descriptionOP: string = form.descriptionOp.value;
-    const categoriesOP: Category = form.selectCategoriesOp.value;
+    const categoriesOP: Category = getCategory(form.selectCategoriesOp.value);
     const dateOP: string = form.dateOp.value;
     const amountOP: number = form.amountOp.value;
     const typeOP: string = form.selectType.value;
@@ -43,7 +51,7 @@ const createOperation = (e) => {
     const newOp: Operation = {
         id: getIdOperation(),
         description: descriptionOP,
-        categories: categoriesOP,
+        category: categoriesOP,
         date: dateOP,
         amount: amountOP,
         type: typeOP,
@@ -53,4 +61,5 @@ const createOperation = (e) => {
 
 }
 formOperation.addEventListener('submit', createOperation);
+
 
