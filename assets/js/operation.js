@@ -13,24 +13,10 @@ var getIdOperation = function () {
 };
 //FUNCION CARGAR SELECT DE CATEGORIES
 var selectCatOperations = document.getElementById('selectCategoriesOp');
-loadCategoriesSelect(selectCatOperations);
+loadForm(selectCatOperations);
 // FUNCION CARGA OPERACIONES A LS
 var formOperation = document.getElementById('form-operation');
 var lstorage = getStorage();
-// 1 - crear una funcion getCategory
-// 2 - La funcion recibe Id
-// 3 - buscar en el array de cateogrias la que coincida con el ID
-// 4 - retornar el obejto completo. ej: { id: 1, name: 'Comida' }
-var getCategory = function (selectCat) {
-    for (var _i = 0, _a = lstorage.categories; _i < _a.length; _i++) {
-        var Category = _a[_i];
-        if (parseInt(selectCat) === Category.id) {
-            return Category;
-        }
-        
-    }
-    
-};
 var createOperation = function (e) {
     e.preventDefault();
     var form = e.target;
@@ -57,6 +43,5 @@ var createOperation = function (e) {
     };
     lstorage.operations.push(newOp);
     localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
-    refresh();
 };
 formOperation.addEventListener('submit', createOperation);
