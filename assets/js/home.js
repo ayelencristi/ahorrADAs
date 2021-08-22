@@ -1,6 +1,6 @@
 // FUNCION CARGAR OPTIONS SELECT CATEGORIES
 var selectCategories = document.getElementById('select-categories');
-var loadCategoriesSelect = function (s) {
+var loadForm = function (s) {
     var lstorage = getStorage();
     // const selectCategories = document.getElementById('select-categories');
     for (var _i = 0, _a = lstorage.categories; _i < _a.length; _i++) {
@@ -11,7 +11,7 @@ var loadCategoriesSelect = function (s) {
         s.appendChild(elem);
     }
 };
-loadCategoriesSelect(selectCategories);
+loadForm(selectCategories);
 /////////////////
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 var tableOperations = document.getElementById('operations');

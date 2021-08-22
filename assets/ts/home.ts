@@ -3,7 +3,7 @@
 const selectCategories = document.getElementById('select-categories');
 
 
-const loadCategoriesSelect = (s) => {
+const loadForm = (s) => {
     const lstorage: LocalStorage = getStorage();
 
     // const selectCategories = document.getElementById('select-categories');
@@ -15,7 +15,7 @@ const loadCategoriesSelect = (s) => {
         s.appendChild(elem);
     }
 }
-loadCategoriesSelect(selectCategories);
+loadForm(selectCategories);
 
 /////////////////
 
