@@ -20,15 +20,23 @@ var lstorage = getStorage();
 var createOperation = function (e) {
     e.preventDefault();
     var form = e.target;
+    var getCategory = function (selectCat) {
+        for (var _i = 0, _a = lstorage.categories; _i < _a.length; _i++) {
+            var Category = _a[_i];
+            if (parseInt(selectCat) === Category.id) {
+                return Category;
+            }
+        }
+    };
     var descriptionOP = form.descriptionOp.value;
-    var categoriesOP = form.selectCategoriesOp.value;
+    var categoriesOP = getCategory(form.selectCategoriesOp.value);
     var dateOP = form.dateOp.value;
     var amountOP = form.amountOp.value;
     var typeOP = form.selectType.value;
     var newOp = {
         id: getIdOperation(),
         description: descriptionOP,
-        categories: categoriesOP,
+        category: categoriesOP,
         date: dateOP,
         amount: amountOP,
         type: typeOP

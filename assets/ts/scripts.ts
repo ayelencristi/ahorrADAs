@@ -6,7 +6,7 @@ type LocalStorage = {
 type Operation = {
     id: number,
     description: string,
-    categories: Category,
+    category: Category,
     date: string,
     amount: number,
     type: string,
@@ -18,6 +18,7 @@ type Category = {
 }
 
 const getStorage = (): LocalStorage => {
+
     let locStor: LocalStorage = JSON.parse(localStorage.getItem('ahorradas-data'));
 
     if(!locStor) {
