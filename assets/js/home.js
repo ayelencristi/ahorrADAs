@@ -26,11 +26,14 @@ var loadOperationTable = function () {
         var tdDate = document.createElement('td');
         var tdAmount = document.createElement('td');
         var tdAction = document.createElement('td');
+        var editAction = document.createElement('a');
+        var deleteAction = document.createElement('button');
         tdDescription.appendChild(document.createTextNode(operation.description));
         tdCategory.appendChild(document.createTextNode(operation.category.name));
         tdDate.appendChild(document.createTextNode(operation.date));
-        tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
-        tdAction.appendChild(document.createTextNode(operation.type));
+        tdAmount.appendChild(document.createTextNode(operation.amount));
+        tdAction.appendChild(editAction);
+        tdAction.appendChild(deleteAction);
         tr.appendChild(tdDescription);
         tr.appendChild(tdCategory);
         tr.appendChild(tdDate);
@@ -42,3 +45,44 @@ var loadOperationTable = function () {
     }
 };
 loadOperationTable();
+// FUNCION MOSTRAR/OCULTAR TABLA DE OPERACIONES
+var divImgHome = document.getElementById('div-img-home');
+var divTableOperations = document.getElementById('div-table-operations');
+var showTableOperation = function () {
+    var lstorage = getStorage();
+    if (lstorage.operations.length >= 1) {
+        divImgHome.classList.add('d-none');
+        divTableOperations.classList.remove('d-none');
+    }
+};
+showTableOperation();
+// FUNCION OPERACIONES BALANCE
+// SUMAR GANANCIAS  = RECORRER LSTORAGE DE OP, IDENTIFICAR LAS GANANCIAS Y HACER LA SUMA
+var divGain = document.getElementById('div-gain');
+var divExpense = document.getElementById('div-expense');
+var divTotal = document.getElementById('div-total');
+var balance = function () {
+    var lstorage = getStorage();
+    var totalGains = 0;
+    var totalExpense = 0;
+    var total = 0;
+    for (var _i = 0, _a = lstorage.operations; _i < _a.length; _i++) {
+        var operation = _a[_i];
+        if (operation.type === 'ganancia') {
+            totalGains = totalGains + operation.amount;
+        }
+        else if (operation.type === 'gasto') {
+            totalExpense = totalExpense + operation.amount;
+        }
+    }
+    total = totalGains - totalExpense;
+    divGain.innerHTML = totalGains;
+    divExpense.innerHTML = totalExpense;
+    if (total < 0) {
+        divTotal.innerHTML = "-$ " + -total;
+    }
+    else {
+        divTotal.innerHTML = "$ " + total;
+    }
+};
+balance();
