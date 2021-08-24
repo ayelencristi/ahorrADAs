@@ -39,15 +39,17 @@
 
     <main class="container mt-5">
         <div>
-            <h3>Categorías</h3>
+            <h3>Editar categoría</h3>
             <p class="mt-5">Nombre</p>
-            <form class="row" id="form-category" action="">
+            <form class="row" id="form-edit-category" action="categories.html">
                 <div class="col-10">
                   <label for="inputPassword2" class="visually-hidden">pass</label>
-                  <input type="text" name="name" class="form-control" id="name">
+                  <input type="text" name="name" class="form-control" id="edit-cat-name" required>
                 </div>
                 <div class="col-2">
-                  <button type="submit" class="btn btn-primary mb-3 colour-btn">Agregar</button>
+                  <button type="submit" id="btnEditCategory" class="btn btn-primary mb-3 colour-btn">Editar</button>
+                  <!-- <a href="categories.html" class="btn btn-light me-md-2" type="" id="btn-cancel">Cancelar</a> -->
+                  <button onclick="window.location.href='categories.html'" type="submit" class="btn btn-primary mb-3 colour-btn">Cancelar</button>
                 </div>
               </form>     
               <table class="table table-borderless" id="table-categories">
@@ -63,3 +65,4 @@
 <script src="./assets/js/categories-edit.js"></script>
 </body>
 </html>
+
