@@ -1,5 +1,5 @@
 var params = new URLSearchParams(window.location.search);
-if (params.get('id')) {
+if (params.get("id")) {
 }
 // FUNCION ID´S OPERATION
 var getIdOperation = function () {
@@ -12,10 +12,11 @@ var getIdOperation = function () {
     }
 };
 //FUNCION CARGAR SELECT DE CATEGORIES
-var selectCatOperations = document.getElementById('selectCategoriesOp');
-loadForm(selectCatOperations);
+var selectCatOperations = document.getElementById("selectCategoriesOp");
+if (selectCatOperations)
+    loadForm(selectCatOperations);
 // FUNCION CARGA OPERACIONES A LS
-var formOperation = document.getElementById('form-operation');
+var formOperation = document.getElementById("form-operation");
 var lstorage = getStorage();
 var createOperation = function (e) {
     e.preventDefault();
@@ -31,7 +32,7 @@ var createOperation = function (e) {
     var descriptionOP = form.descriptionOp.value;
     var categoriesOP = getCategory(form.selectCategoriesOp.value);
     var dateOP = form.dateOp.value;
-    var amountOP = form.amountOp.value;
+    var amountOP = parseInt(form.amountOp.value);
     var typeOP = form.selectType.value;
     var newOp = {
         id: getIdOperation(),
@@ -41,7 +42,9 @@ var createOperation = function (e) {
         amount: amountOP,
         type: typeOP
     };
+    console.log(newOp);
     lstorage.operations.push(newOp);
-    localStorage.setItem('ahorradas-data', JSON.stringify(lstorage));
+    localStorage.setItem("ahorradas-data", JSON.stringify(lstorage));
 };
-formOperation.addEventListener('submit', createOperation);
+if (formOperation)
+    formOperation.addEventListener("submit", createOperation);
