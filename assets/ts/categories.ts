@@ -34,9 +34,9 @@ const loadCategoriesTable = () => {
         tdEdit.appendChild(document.createTextNode('Editar'));        
         tdDelete.appendChild(document.createTextNode('Eliminar'));
         
-        // tdEdit.setAttribute('onclick', `location.href="./categories-edit.html?id=${category.id}"`);
-        // tdDelete.dataset.id = category.id;
-        // tdDelete.setAttribute("class", "tdDelete")
+        tdEdit.setAttribute('onclick', `location.href="./categories-edit.html?id=${category.id}"`);
+        tdDelete.dataset.id = category.id;
+        tdDelete.setAttribute("class", "tdDelete")
 
         tr.appendChild(tdCategory);
         tr.appendChild(tdEdit);
