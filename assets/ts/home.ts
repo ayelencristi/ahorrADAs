@@ -90,7 +90,7 @@ showTableOperation();
 
 // FUNCION OPERACIONES BALANCE
 
-// SUMAR GANANCIAS  = RECORRER LSTORAGE DE OP, IDENTIFICAR GANANCIAS Y GASTOS Y HACER TOTAL
+// RECORRER LSTORAGE DE OP, IDENTIFICAR GANANCIAS Y GASTOS Y HACER TOTAL
 // concatena en vez de hacer suma de números y los gastos también los suma en vez de restarlos, lo dejo comentado, descomentar para probarlo...
 
 const divGain: HTMLElement = document.getElementById("div-gain");
