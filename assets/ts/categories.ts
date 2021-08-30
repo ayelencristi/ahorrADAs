@@ -34,7 +34,7 @@ const loadCategoriesTable = () => {
         tdEdit.appendChild(document.createTextNode('Editar'));        
         tdDelete.appendChild(document.createTextNode('Eliminar'));
         
-        tdEdit.setAttribute('onclick', `location.href="./categories-edit.html?id=${category.id}"`);
+        tdEdit.setAttribute('href', `location.href="./categories-edit.html?id=${category.id}"`);
         tdDelete.dataset.id = category.id;
         tdDelete.setAttribute("class", "tdDelete")
 
@@ -44,7 +44,7 @@ const loadCategoriesTable = () => {
         const tbody = tableCategories.getElementsByTagName('tbody')[0];
 
         tbody.appendChild(tr);
-        // tdDelete.addEventListener('onclick', deleteCategory);
+        tdDelete.addEventListener('click', deleteCategory);
 
 
     })
@@ -102,13 +102,13 @@ formCategory.addEventListener('submit', createCategory)
 
 // btnDeleteCat.addEventListener("click", deleteCategory);
 
-// const deleteCategory = (e) => {
-//     const idCategory = e.target.dataset.id;
-//     let lstorage: LocalStorage = getStorage();
-//     let updatedStorage = lstorage.categories.filter(item => item.id != idCategory);
-//     localStorage.setItem('ahorradas-data', JSON.stringify({...lstorage, categories: updatedStorage}));
+const deleteCategory = (e) => {
+    const idCategory = e.target.dataset.id;
+    let lstorage: LocalStorage = getStorage();
+    let updatedStorage = lstorage.categories.filter(item => item.id != idCategory);
+    localStorage.setItem('ahorradas-data', JSON.stringify({...lstorage, categories: updatedStorage}));
 
-//     loadCategoriesTable();
+    loadCategoriesTable();
 
 
 
