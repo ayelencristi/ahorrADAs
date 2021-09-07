@@ -27,14 +27,8 @@ const getStorage = (): LocalStorage => {
             operations: [],
         } 
     }
-
     return locStor;
 }
-
-
-
-
-
 
 
 const init = () => {

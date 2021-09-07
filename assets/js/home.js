@@ -14,7 +14,6 @@ var loadForm = function (s) {
 };
 if (selectCategories)
     loadForm(selectCategories);
-/////////////////
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 var tableOperations = document.getElementById("operations");
 var loadOperationTable = function () {
@@ -64,7 +63,7 @@ var showTableOperation = function () {
 };
 showTableOperation();
 // FUNCION OPERACIONES BALANCE
-// SUMAR GANANCIAS  = RECORRER LSTORAGE DE OP, IDENTIFICAR GANANCIAS Y GASTOS Y HACER TOTAL
+// RECORRER LSTORAGE DE OP, IDENTIFICAR GANANCIAS Y GASTOS Y HACER TOTAL
 // concatena en vez de hacer suma de números y los gastos también los suma en vez de restarlos, lo dejo comentado, descomentar para probarlo...
 var divGain = document.getElementById("div-gain");
 var divExpense = document.getElementById("div-expense");

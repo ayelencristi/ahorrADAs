@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var getID = function () {
     if (lstorage.categories.length > 0) {
         var lastItem = lstorage.categories[lstorage.categories.length - 1];
@@ -23,7 +34,7 @@ var loadCategoriesTable = function () {
         tdCategory.appendChild(document.createTextNode(category.name));
         tdEdit.appendChild(document.createTextNode('Editar'));
         tdDelete.appendChild(document.createTextNode('Eliminar'));
-        tdEdit.setAttribute('onclick', "location.href=\"./categories-edit.html?id=" + category.id + "\"");
+        tdEdit.setAttribute('href', "location.href=\"./categories-edit.html?id=" + category.id + "\"");
         tdDelete.dataset.id = category.id;
         tdDelete.setAttribute("class", "tdDelete");
         tr.appendChild(tdCategory);
@@ -31,7 +42,7 @@ var loadCategoriesTable = function () {
         tr.appendChild(tdDelete);
         var tbody = tableCategories.getElementsByTagName('tbody')[0];
         tbody.appendChild(tr);
-        // tdDelete.addEventListener('onclick', deleteCategory);
+        tdDelete.addEventListener('click', deleteCategory);
     });
 };
 loadCategoriesTable();
@@ -67,9 +78,10 @@ formCategory.addEventListener('submit', createCategory);
 //     }
 // }
 // btnDeleteCat.addEventListener("click", deleteCategory);
-// const deleteCategory = (e) => {
-//     const idCategory = e.target.dataset.id;
-//     let lstorage: LocalStorage = getStorage();
-//     let updatedStorage = lstorage.categories.filter(item => item.id != idCategory);
-//     localStorage.setItem('ahorradas-data', JSON.stringify({...lstorage, categories: updatedStorage}));
-//     loadCategoriesTable();
+var deleteCategory = function (e) {
+    var idCategory = e.target.dataset.id;
+    var lstorage = getStorage();
+    var updatedStorage = lstorage.categories.filter(function (item) { return item.id != idCategory; });
+    localStorage.setItem('ahorradas-data', JSON.stringify(__assign(__assign({}, lstorage), { categories: updatedStorage })));
+};
+loadCategoriesTable();

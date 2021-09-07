@@ -5,15 +5,11 @@ let getID = () =>{
     }else{
         return 1
     }
-
 }
 
 const refresh = () =>{
     document.location.reload(false);
 }
-
-
-
 
 
 // CARGAR TABLA CATEGORÍAS
@@ -45,11 +41,11 @@ const loadCategoriesTable = () => {
 
         tbody.appendChild(tr);
         tdDelete.addEventListener('click', deleteCategory);
-
-
     })
 }
 loadCategoriesTable();
+
+
 
 // FUNCION CREAR CATEGORIAS
 
@@ -107,13 +103,5 @@ const deleteCategory = (e) => {
     let lstorage: LocalStorage = getStorage();
     let updatedStorage = lstorage.categories.filter(item => item.id != idCategory);
     localStorage.setItem('ahorradas-data', JSON.stringify({...lstorage, categories: updatedStorage}));
-
-    loadCategoriesTable();
-
-
-
-
-
-
-
-
+};
+loadCategoriesTable();

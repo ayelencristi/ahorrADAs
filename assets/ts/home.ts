@@ -18,7 +18,6 @@ const loadForm = (s: HTMLElement) => {
 };
 if (selectCategories) loadForm(selectCategories);
 
-/////////////////
 
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 
