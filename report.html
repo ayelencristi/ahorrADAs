@@ -39,7 +39,7 @@
     <main class="container mt-5 sombra">
         <div class="card">
             <h2 class="m-5">Reportes</h2>
-            <div class="d-flex justify-content-center d-none">
+            <div class="d-flex justify-content-center" id="report-empty">
                 <div class="medidas">
                         <img src="./assets/images/undraw_Progress_data_re_rv4p.svg" class="img-fluid" alt="">
                             <h3>Operaciones insuficientes</h3>
@@ -48,7 +48,7 @@
             </div>
 
             <!--Tabla de Reportes-->
-            <div class="m-5">
+            <div class="m-5 d-none" id="report-table">
                 <table class="table table-borderless table-responsive">
                     <h3>Resumen</h3>
                     <tbody>
@@ -112,5 +112,6 @@
 
         <script src="./assets/js/bootstrap.min.js"></script>
         <script src="./assets/js/scripts.js"></script>
+        <script src="assets/js/report.js"></script>
     </body>
 </html>
