@@ -37,16 +37,78 @@
     </header> 
     
     <main class="container mt-5 sombra">
-        <h2>Reportes</h2>
-            <div class="d-flex justify-content-center">
-                    <div class="medidas">
-                    <img src="./assets/images/undraw_Progress_data_re_rv4p.svg" class="img-fluid" alt="">
-                    <h3>Operaciones insuficientes</h3>
-                    <p>Prueba agregando más operaciones</p>
+        <div class="card">
+            <h2 class="m-5">Reportes</h2>
+            <div class="d-flex justify-content-center d-none">
+                <div class="medidas">
+                        <img src="./assets/images/undraw_Progress_data_re_rv4p.svg" class="img-fluid" alt="">
+                            <h3>Operaciones insuficientes</h3>
+                            <p>Prueba agregando más operaciones</p>
                 </div>
             </div>
 
-        </main>
+            <!--Tabla de Reportes-->
+            <div class="m-5">
+                <table class="table table-borderless table-responsive">
+                    <h3>Resumen</h3>
+                    <tbody>
+                        <tr>
+                            <td>Categoría con mayor ganancia</td>
+                            <td class="" id="">Categoria</td>
+                            <td class="text-end">$<span id=""></span></td>
+                        </tr>
+                        <tr>
+                            <td>Categoría con mayor gasto</td>
+                            <td class="" id="e">Categoria</td>
+                            <td class="text-end">-$<span id=""></span></td>
+                        </tr>
+                        <tr>
+                            <td>Categoría con mayor balance</td>
+                            <td class="" id="">Categoria</td>
+                            <td class="text-end">$<span id=""></span></td>
+                        </tr>
+                        <tr>
+                            <td>Mes con mayor ganancia</td>
+                            <td class="" id="">Fecha</td>
+                            <td class="text-end">$<span id=""></span></td>
+                        </tr>
+                        <tr>
+                            <td>Mes con mayor gasto</td>
+                            <td class="" id="">Fecha</td>
+                            <td class="text-end">-$<span id=""></span></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+
+                <table class="table table-borderless">
+                    <h3>Totales por categorías</h3>
+                    <thead>
+                        <tr>
+                            <td scope="col">Categoría</td>
+                            <td scope="col" class="text-center">Ganancia</td>
+                            <td scope="col" class="text-center">Gasto</td>
+                            <td scope="col" class="text-end">Balance</td>
+                        </tr>
+                    </thead>
+                    <tbody id=""></tbody>
+                </table>
+                
+                <table class="table table-borderless" >
+                    <h3>Totales por mes</h3>
+                    <thead>
+                        <tr>
+                            <td scope="col">Mes</td>
+                            <td scope="col" class="text-center">Ganancia</td>
+                            <td scope="col" class="text-center">Gasto</td>
+                            <td scope="col" class="text-end">Balance</td>
+                        </tr>
+                    </thead>
+                    <tbody id=""></tbody>
+                </table>
+              </div>
+        </div>
+    </main>
 
         <script src="./assets/js/bootstrap.min.js"></script>
         <script src="./assets/js/scripts.js"></script>
