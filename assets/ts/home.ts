@@ -5,85 +5,77 @@ const divImgHome = document.getElementById("div-img-home");
 const divTableOperations = document.getElementById("div-table-operations");
 
 const loadForm = (s: HTMLElement) => {
-	const lstorage: LocalStorage = getStorage();
+  const lstorage: LocalStorage = getStorage();
 
-	console.log(s);
+  console.log(s);
 
-	// const selectCategories = document.getElementById('select-categories');
+  // const selectCategories = document.getElementById('select-categories');
 
-	for (const category of lstorage.categories) {
-		const elem: HTMLOptionElement = document.createElement("option");
-		elem.innerText = category.name;
-		elem.value = category.id.toString();
-		s.appendChild(elem);
-	}
+  for (const category of lstorage.categories) {
+    const elem: HTMLOptionElement = document.createElement("option");
+    elem.innerText = category.name;
+    elem.value = category.id.toString();
+    s.appendChild(elem);
+  }
 };
 if (selectCategories) loadForm(selectCategories);
-
-/////////////////
 
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 
 const tableOperations = document.getElementById("operations");
 
 const loadOperationTable = () => {
-	const lstorage: LocalStorage = getStorage();
+  const lstorage: LocalStorage = getStorage();
 
-	// lstorage.operations.forEach((operation) => {
-	for (const operation of lstorage.operations) {
-		const tr = document.createElement("tr");
-		const tdDescription = document.createElement("td");
-		const tdCategory = document.createElement("td");
-		const tdDate = document.createElement("td");
-		const tdAmount = document.createElement("td");
-		const tdAction = document.createElement("td");
+  // lstorage.operations.forEach((operation) => {
+  for (const operation of lstorage.operations) {
+    const tr = document.createElement("tr");
+    const tdDescription = document.createElement("td");
+    const tdCategory = document.createElement("td");
+    const tdDate = document.createElement("td");
+    const tdAmount = document.createElement("td");
+    const tdAction = document.createElement("td");
 
-		const editAction = document.createElement("a");
-		const deleteAction = document.createElement("button");
+    const editAction = document.createElement("a");
+    const deleteAction = document.createElement("button");
 
-		tdDescription.appendChild(
-			document.createTextNode(operation.description)
-		);
-		tdCategory.appendChild(
-			document.createTextNode(operation.category.name)
-		);
-		tdDate.appendChild(document.createTextNode(operation.date));
-		tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
-		tdAction.appendChild(editAction);
-		tdAction.appendChild(deleteAction);
+    tdDescription.appendChild(document.createTextNode(operation.description));
+    tdCategory.appendChild(document.createTextNode(operation.category.name));
+    tdDate.appendChild(document.createTextNode(operation.date));
+    tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
+    tdAction.appendChild(editAction);
+    tdAction.appendChild(deleteAction);
 
-		tr.appendChild(tdDescription);
-		tr.appendChild(tdCategory);
-		tr.appendChild(tdDate);
-		tr.appendChild(tdAmount);
-		tr.appendChild(tdAction);
+    tr.appendChild(tdDescription);
+    tr.appendChild(tdCategory);
+    tr.appendChild(tdDate);
+    tr.appendChild(tdAmount);
+    tr.appendChild(tdAction);
 
-		if (tableOperations) {
-			divTableOperations.classList.remove('d-none');
-			let tbody: HTMLTableSectionElement =
-				tableOperations.getElementsByTagName("tbody")[0];
+    if (tableOperations) {
+      divTableOperations.classList.remove("d-none");
+      let tbody: HTMLTableSectionElement =
+        tableOperations.getElementsByTagName("tbody")[0];
 
-			if (tbody) {
-				const tbodyItem: HTMLTableSectionElement = tbody;
-				tbodyItem.appendChild(tr);
-			}
-		}
+      if (tbody) {
+        const tbodyItem: HTMLTableSectionElement = tbody;
+        tbodyItem.appendChild(tr);
+      }
+    }
 
-		// })
-	}
+    // })
+  }
 };
 loadOperationTable();
 
 // FUNCION MOSTRAR/OCULTAR TABLA DE OPERACIONES
 
-
-
 const showTableOperation = () => {
-	let lstorage: LocalStorage = getStorage();
-	if (lstorage.operations.length > 0 /*&& divExpense && divTableOperations*/) {
-		divImgHome.classList.add("d-none");
-		divTableOperations.classList.remove("d-none");
-	}
+  let lstorage: LocalStorage = getStorage();
+  if (lstorage.operations.length > 0 /*&& divExpense && divTableOperations*/) {
+    divImgHome.classList.add("d-none");
+    divTableOperations.classList.remove("d-none");
+  }
 };
 
 showTableOperation();
@@ -98,30 +90,29 @@ const divExpense: HTMLElement = document.getElementById("div-expense");
 const divTotal: HTMLElement = document.getElementById("div-total");
 
 const balance = () => {
-	let lstorage: LocalStorage = getStorage();
+  let lstorage: LocalStorage = getStorage();
 
-	let totalGains: number = 0;
-	let totalExpense = 0;
-	let total = 0;
+  let totalGains = 0;
+  let totalExpense = 0;
+  let total = 0;
 
-	for (const operation of lstorage.operations) {
-		if (operation.type === "ganancia") {
-			totalGains = totalGains + operation.amount;
-		} else if (operation.type === "gasto") {
-			totalExpense = totalExpense + operation.amount;
-		}
-	}
+  for (const operation of lstorage.operations) {
+    if (operation.type === "ganancia") {
+      totalGains = totalGains + operation.amount;
+    } else if (operation.type === "gasto") {
+      totalExpense = totalExpense + operation.amount;
+    }
+  }
 
-	total = totalGains - totalExpense;
+  total = totalGains - totalExpense;
 
-	divGain.innerHTML = totalGains.toString();
-	divExpense.innerHTML = totalExpense.toString();
+  divGain.innerHTML = totalGains.toString();
+  divExpense.innerHTML = totalExpense.toString();
 
-	if (total < 0) {
-		divTotal.innerHTML = `${total}`;
-	} else {
-		divTotal.innerHTML = `${total}`;
-	}
-
+  if (total < 0) {
+    divTotal.innerHTML = `${total}`;
+  } else {
+    divTotal.innerHTML = `${total}`;
+  }
 };
 if (divGain && divExpense && divTotal) balance();

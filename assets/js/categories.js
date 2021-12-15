@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var getID = function () {
     if (lstorage.categories.length > 0) {
         var lastItem = lstorage.categories[lstorage.categories.length - 1];
@@ -23,11 +34,15 @@ var loadCategoriesTable = function () {
         tdCategory.appendChild(document.createTextNode(category.name));
         tdEdit.appendChild(document.createTextNode('Editar'));
         tdDelete.appendChild(document.createTextNode('Eliminar'));
+        tdEdit.setAttribute('href', "location.href=\"./categories-edit.html?id=".concat(category.id, "\""));
+        tdDelete.dataset.id = category.id;
+        tdDelete.setAttribute("class", "tdDelete");
         tr.appendChild(tdCategory);
         tr.appendChild(tdEdit);
         tr.appendChild(tdDelete);
         var tbody = tableCategories.getElementsByTagName('tbody')[0];
         tbody.appendChild(tr);
+        tdDelete.addEventListener('click', deleteCategory);
     });
 };
 loadCategoriesTable();
@@ -48,3 +63,25 @@ var createCategory = function (e) {
     refresh();
 };
 formCategory.addEventListener('submit', createCategory);
+// FUNCION ELIMINAR / EDITAR CATEGORIAS
+// const btnDeleteCat = document.getElementsByClassName('tdDelete');
+// const deleteCategory = (e) => {
+// 	const idToDelete = e.target.dataset.category;
+// 	const storageAux = getStorage(); 
+// 	let categoryNameToDelete;
+// 	for (let i = 0; i < storageAux.categories.length; i++) {
+// 		if (storageAux.categories[i].id == idToDelete) {
+// 			categoryNameToDelete = storageAux.categories[i].name;  
+// 			storageAux.categories.splice(i, 1); 
+// 			break;
+//         }
+//     }
+// }
+// btnDeleteCat.addEventListener("click", deleteCategory);
+var deleteCategory = function (e) {
+    var idCategory = e.target.dataset.id;
+    var lstorage = getStorage();
+    var updatedStorage = lstorage.categories.filter(function (item) { return item.id != idCategory; });
+    localStorage.setItem('ahorradas-data', JSON.stringify(__assign(__assign({}, lstorage), { categories: updatedStorage })));
+};
+loadCategoriesTable();

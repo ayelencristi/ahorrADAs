@@ -1,117 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- font awesome -->
-        <script src="https://kit.fontawesome.com/430e0fa557.js" crossorigin="anonymous"></script>
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./assets/css/styles.css">
-        <title>AhorrADAs!-Reportes</title>
-    </head>
-    <body>
-        
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/430e0fa557.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>AhorrADAs!-Reportes</title>
+  </head>
+  <body>
     <header>
-        <nav class="row container-fluid">
-            <div class="col">
-            <h1> <i class="fas fa-wallet"></i> AhorrADAs </h1>
-            </div>
-            <div class="col nav justify-content-end">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link estilos" aria-current="page" href="./index.html">
-                            <i class="fas fa-chart-line"></i> Balance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link estilos" href="./categories.html">
-                            <i class="fas fa-tag"></i> Categorías</a>
-                    </li>
-                <li class="nav-item">
-                    <a class="nav-link estilos" href="./report.html">
-                        <i class="fas fa-chart-pie"></i> Reportes</a>
-                </li>
-                </ul>
-            </div>
-        </nav>
-    </header> 
-    
-    <main class="container mt-5 sombra">
-        <div class="card">
-            <h2 class="m-5">Reportes</h2>
-            <div class="d-flex justify-content-center" id="report-empty">
-                <div class="medidas">
-                        <img src="./assets/images/undraw_Progress_data_re_rv4p.svg" class="img-fluid" alt="">
-                            <h3>Operaciones insuficientes</h3>
-                            <p>Prueba agregando más operaciones</p>
-                </div>
-            </div>
-
-            <!--Tabla de Reportes-->
-            <div class="m-5 d-none" id="report-table">
-                <table class="table table-borderless table-responsive">
-                    <h3>Resumen</h3>
-                    <tbody>
-                        <tr>
-                            <td>Categoría con mayor ganancia</td>
-                            <td class="" id="">Categoria</td>
-                            <td class="text-end">$<span id=""></span></td>
-                        </tr>
-                        <tr>
-                            <td>Categoría con mayor gasto</td>
-                            <td class="" id="e">Categoria</td>
-                            <td class="text-end">-$<span id=""></span></td>
-                        </tr>
-                        <tr>
-                            <td>Categoría con mayor balance</td>
-                            <td class="" id="">Categoria</td>
-                            <td class="text-end">$<span id=""></span></td>
-                        </tr>
-                        <tr>
-                            <td>Mes con mayor ganancia</td>
-                            <td class="" id="">Fecha</td>
-                            <td class="text-end">$<span id=""></span></td>
-                        </tr>
-                        <tr>
-                            <td>Mes con mayor gasto</td>
-                            <td class="" id="">Fecha</td>
-                            <td class="text-end">-$<span id=""></span></td>
-                        </tr>
-                    
-                    </tbody>
-                </table>
-
-                <table class="table table-borderless">
-                    <h3>Totales por categorías</h3>
-                    <thead>
-                        <tr>
-                            <td scope="col">Categoría</td>
-                            <td scope="col" class="text-center">Ganancia</td>
-                            <td scope="col" class="text-center">Gasto</td>
-                            <td scope="col" class="text-end">Balance</td>
-                        </tr>
-                    </thead>
-                    <tbody id=""></tbody>
-                </table>
-                
-                <table class="table table-borderless" >
-                    <h3>Totales por mes</h3>
-                    <thead>
-                        <tr>
-                            <td scope="col">Mes</td>
-                            <td scope="col" class="text-center">Ganancia</td>
-                            <td scope="col" class="text-center">Gasto</td>
-                            <td scope="col" class="text-end">Balance</td>
-                        </tr>
-                    </thead>
-                    <tbody id=""></tbody>
-                </table>
-              </div>
+      <nav class="row container-fluid">
+        <div class="col">
+          <h1><i class="fas fa-wallet"></i> AhorrADAs</h1>
         </div>
+        <div class="col nav justify-content-end">
+          <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a
+                class="nav-link estilos"
+                aria-current="page"
+                href="./index.html"
+              >
+                <i class="fas fa-chart-line"></i> Balance</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link estilos" href="./categories.html">
+                <i class="fas fa-tag"></i> Categorías</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link estilos" href="./report.html">
+                <i class="fas fa-chart-pie"></i> Reportes</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5 sombra">
+      <div class="card">
+        <h2 class="m-5">Reportes</h2>
+        <div class="d-flex justify-content-center" id="report-empty">
+          <div class="medidas">
+            <img
+              src="./assets/images/undraw_Progress_data_re_rv4p.svg"
+              class="img-fluid"
+              alt=""
+            />
+            <h3>Operaciones insuficientes</h3>
+            <p>Prueba agregando más operaciones</p>
+          </div>
+        </div>
+
+        <!--Tabla de Reportes-->
+        <div class="m-5 d-none" id="report-table">
+          <table class="table table-borderless table-responsive">
+            <h3>Resumen</h3>
+            <tbody>
+              <tr>
+                <td>Categoría con mayor ganancia</td>
+                <td class="" id="">Categoria</td>
+                <td class="text-end">$<span id=""></span></td>
+              </tr>
+              <tr>
+                <td>Categoría con mayor gasto</td>
+                <td class="" id="e">Categoria</td>
+                <td class="text-end">-$<span id=""></span></td>
+              </tr>
+              <tr>
+                <td>Categoría con mayor balance</td>
+                <td class="" id="">Categoria</td>
+                <td class="text-end">$<span id=""></span></td>
+              </tr>
+              <tr>
+                <td>Mes con mayor ganancia</td>
+                <td class="" id="">Fecha</td>
+                <td class="text-end">$<span id=""></span></td>
+              </tr>
+              <tr>
+                <td>Mes con mayor gasto</td>
+                <td class="" id="">Fecha</td>
+                <td class="text-end">-$<span id=""></span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table table-borderless">
+            <h3>Totales por categorías</h3>
+            <thead>
+              <tr>
+                <td scope="col">Categoría</td>
+                <td scope="col" class="text-center">Ganancia</td>
+                <td scope="col" class="text-center">Gasto</td>
+                <td scope="col" class="text-end">Balance</td>
+              </tr>
+            </thead>
+            <tbody id=""></tbody>
+          </table>
+
+          <table class="table table-borderless">
+            <h3>Totales por mes</h3>
+            <thead>
+              <tr>
+                <td scope="col">Mes</td>
+                <td scope="col" class="text-center">Ganancia</td>
+                <td scope="col" class="text-center">Gasto</td>
+                <td scope="col" class="text-end">Balance</td>
+              </tr>
+            </thead>
+            <tbody id=""></tbody>
+          </table>
+        </div>
+      </div>
     </main>
 
-        <script src="./assets/js/bootstrap.min.js"></script>
-        <script src="./assets/js/scripts.js"></script>
-        <script src="assets/js/report.js"></script>
-    </body>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+    <script src="assets/js/report.js"></script>
+  </body>
 </html>

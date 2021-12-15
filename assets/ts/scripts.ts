@@ -22,19 +22,13 @@ const getStorage = (): LocalStorage => {
     let locStor: LocalStorage = JSON.parse(localStorage.getItem('ahorradas-data'));
 
     if(!locStor) {
-       locStor = {
-          categories: [],
-          operations: [],
-       } 
+        locStor = {
+            categories: [],
+            operations: [],
+        } 
     }
- 
     return locStor;
 }
-
-
-
-
-
 
 
 const init = () => {
