@@ -1,5 +1,7 @@
 // FUNCION CARGAR OPTIONS SELECT CATEGORIES
 var selectCategories = document.getElementById("select-categories");
+var divImgHome = document.getElementById("div-img-home");
+var divTableOperations = document.getElementById("div-table-operations");
 var loadForm = function (s) {
     var lstorage = getStorage();
     console.log(s);
@@ -32,7 +34,7 @@ var loadOperationTable = function () {
         tdDescription.appendChild(document.createTextNode(operation.description));
         tdCategory.appendChild(document.createTextNode(operation.category.name));
         tdDate.appendChild(document.createTextNode(operation.date));
-        tdAmount.appendChild(document.createTextNode(operation.amount));
+        tdAmount.appendChild(document.createTextNode(operation.amount.toString()));
         tdAction.appendChild(editAction);
         tdAction.appendChild(deleteAction);
         tr.appendChild(tdDescription);
@@ -41,9 +43,10 @@ var loadOperationTable = function () {
         tr.appendChild(tdAmount);
         tr.appendChild(tdAction);
         if (tableOperations) {
-            var tbody = tableOperations.getElementsByTagName("tbody");
+            divTableOperations.classList.remove("d-none");
+            var tbody = tableOperations.getElementsByTagName("tbody")[0];
             if (tbody) {
-                var tbodyItem = tbody[0];
+                var tbodyItem = tbody;
                 tbodyItem.appendChild(tr);
             }
         }
@@ -52,11 +55,9 @@ var loadOperationTable = function () {
 };
 loadOperationTable();
 // FUNCION MOSTRAR/OCULTAR TABLA DE OPERACIONES
-var divImgHome = document.getElementById("div-img-home");
-var divTableOperations = document.getElementById("div-table-operations");
 var showTableOperation = function () {
     var lstorage = getStorage();
-    if (lstorage.operations.length >= 1 && divExpense && divTableOperations) {
+    if (lstorage.operations.length > 0 /*&& divExpense && divTableOperations*/) {
         divImgHome.classList.add("d-none");
         divTableOperations.classList.remove("d-none");
     }
@@ -86,10 +87,10 @@ var balance = function () {
     divGain.innerHTML = totalGains.toString();
     divExpense.innerHTML = totalExpense.toString();
     if (total < 0) {
-        divTotal.innerHTML = "" + total;
+        divTotal.innerHTML = "".concat(total);
     }
     else {
-        divTotal.innerHTML = "" + total;
+        divTotal.innerHTML = "".concat(total);
     }
 };
 if (divGain && divExpense && divTotal)

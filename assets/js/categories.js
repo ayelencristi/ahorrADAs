@@ -34,7 +34,7 @@ var loadCategoriesTable = function () {
         tdCategory.appendChild(document.createTextNode(category.name));
         tdEdit.appendChild(document.createTextNode('Editar'));
         tdDelete.appendChild(document.createTextNode('Eliminar'));
-        tdEdit.setAttribute('href', "location.href=\"./categories-edit.html?id=" + category.id + "\"");
+        tdEdit.setAttribute('href', "location.href=\"./categories-edit.html?id=".concat(category.id, "\""));
         tdDelete.dataset.id = category.id;
         tdDelete.setAttribute("class", "tdDelete");
         tr.appendChild(tdCategory);
