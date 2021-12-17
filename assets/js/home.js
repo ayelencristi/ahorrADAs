@@ -17,8 +17,8 @@ if (selectCategories)
 /////////////////
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 var tableOperations = document.getElementById("operations");
+var lstorage = getStorage();
 var loadOperationTable = function () {
-    var lstorage = getStorage();
     // lstorage.operations.forEach((operation) => {
     for (var _i = 0, _a = lstorage.operations; _i < _a.length; _i++) {
         var operation = _a[_i];
@@ -57,7 +57,7 @@ var divImgHome = document.getElementById("div-img-home");
 var divTableOperations = document.getElementById("div-table-operations");
 var showTableOperation = function () {
     var lstorage = getStorage();
-    if (lstorage.operations.length >= 1 && divExpense && divTableOperations) {
+    if (lstorage.operations.length >= 1) {
         divImgHome.classList.add("d-none");
         divTableOperations.classList.remove("d-none");
     }

@@ -23,10 +23,10 @@ if (selectCategories) loadForm(selectCategories);
 // FUNCIÓN CARGAR TABLA DE OPERACIONES
 
 const tableOperations = document.getElementById("operations");
+const lstorage: LocalStorage = getStorage();
 
 const loadOperationTable = () => {
-	const lstorage: LocalStorage = getStorage();
-
+	
 	// lstorage.operations.forEach((operation) => {
 	for (const operation of lstorage.operations) {
 		const tr = document.createElement("tr");
@@ -78,7 +78,7 @@ const divTableOperations = document.getElementById("div-table-operations");
 
 const showTableOperation = () => {
 	let lstorage: LocalStorage = getStorage();
-	if (lstorage.operations.length >= 1 && divExpense && divTableOperations) {
+	if (lstorage.operations.length >= 1) {
 		divImgHome.classList.add("d-none");
 		divTableOperations.classList.remove("d-none");
 	}
