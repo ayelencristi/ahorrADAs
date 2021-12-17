@@ -14,19 +14,23 @@ var refresh = function () {
 var loadCategoriesTable = function () {
     var lstorage = getStorage();
     var tableCategories = document.getElementById('table-categories');
-    // tableCategories.innerHTML = "";
+    var tbody = tableCategories.getElementsByTagName('tbody')[0];
+    tbody.innerHTML = "";
     lstorage.categories.forEach(function (category) {
         var tr = document.createElement('tr');
         var tdCategory = document.createElement('td');
-        var tdEdit = document.createElement('a');
-        var tdDelete = document.createElement('a');
+        var tdEdit = document.createElement('td');
+        var tdDelete = document.createElement('td');
+        var aEdit = document.createElement('a');
+        var aDelete = document.createElement('a');
         tdCategory.appendChild(document.createTextNode(category.name));
         tdEdit.appendChild(document.createTextNode('Editar'));
         tdDelete.appendChild(document.createTextNode('Eliminar'));
+        aEdit.appendChild(tdEdit);
+        aDelete.appendChild(tdDelete);
         tr.appendChild(tdCategory);
         tr.appendChild(tdEdit);
         tr.appendChild(tdDelete);
-        var tbody = tableCategories.getElementsByTagName('tbody')[0];
         tbody.appendChild(tr);
     });
 };

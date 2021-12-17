@@ -19,23 +19,27 @@ const loadCategoriesTable = () => {
     const lstorage: LocalStorage = getStorage();
 
     const tableCategories = document.getElementById('table-categories');
-    // tableCategories.innerHTML = "";
+    const tbody = tableCategories.getElementsByTagName('tbody')[0];
+    tbody.innerHTML = "";
 
     lstorage.categories.forEach((category) => {
         const tr = document.createElement('tr');
         const tdCategory = document.createElement('td');
-        const tdEdit = document.createElement('a');
-        const tdDelete = document.createElement('a');
+        const tdEdit = document.createElement('td');
+        const tdDelete = document.createElement('td');
+        const aEdit = document.createElement('a');
+        const aDelete = document.createElement('a');
 
         tdCategory.appendChild(document.createTextNode(category.name));
         tdEdit.appendChild(document.createTextNode('Editar'));        
         tdDelete.appendChild(document.createTextNode('Eliminar'));
-        
-        
+        aEdit.appendChild(tdEdit);
+        aDelete.appendChild(tdDelete);
+       
         tr.appendChild(tdCategory);
         tr.appendChild(tdEdit);
         tr.appendChild(tdDelete);
-        const tbody = tableCategories.getElementsByTagName('tbody')[0];
+        
         tbody.appendChild(tr);
 
     })
